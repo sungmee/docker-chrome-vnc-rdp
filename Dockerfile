@@ -1,11 +1,11 @@
 FROM ubuntu:16.04
-MAINTAINER SFoxDev <admin@sfoxdev.com>
+MAINTAINER M.Chan <app@lxooo.com>
 
 ENV VNC_PASSWORD="" \
-		DEBIAN_FRONTEND="noninteractive" \
+    DEBIAN_FRONTEND="noninteractive" \
     LC_ALL="C.UTF-8" \
-    LANG="en_US.UTF-8" \
-    LANGUAGE="en_US.UTF-8"
+    LANG="zh_CN.UTF-8" \
+    LANGUAGE="zh_CN.UTF-8"
 
 ADD https://dl.google.com/linux/linux_signing_key.pub /tmp/
 RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list ; \
@@ -22,7 +22,9 @@ RUN echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/so
 			fluxbox \
 			mc \
 			xfce4 \
-			xrdp ; \
+			xrdp \
+			language-pack-zh-hans \
+			ttf-wqy-microhei ; \
 		apt-get clean ; \
 		rm -rf /var/cache/* /var/log/apt/* /var/lib/apt/lists/* /tmp/*
 
