@@ -24,3 +24,24 @@ docker run -d -p 5900:5900 -p 3389:3389 --name chrome sungmee/chrome-vnc-rdp
 ```
 docker run -d -e PASSWORD=mypassword -p 5900:5900 -p 3389:3389 --name chrome sungmee/chrome-vnc-rdp
 ```
+
+### 使用 docker-compose
+
+```
+version: '3'
+
+services:
+  app:
+    image: sungmee/chrome-vnc-rdp
+    container_name: chrome
+    restart: always
+    ports:
+      - 5900:5900
+      - 3389:3389
+    environment:
+      - PASSWORD=mypassword
+```
+
+```
+docker-compose up -d
+```
